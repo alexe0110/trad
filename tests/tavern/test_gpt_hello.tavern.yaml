@@ -1,0 +1,10 @@
+test_name: "Test GET method for /"
+stages:
+  - name: "Get message by name"
+    request:
+      url: "http://localhost:8000/?name=Joe"
+      method: "GET"
+    response:
+      status_code: 200
+      json:
+        message: "Hello, Joe"

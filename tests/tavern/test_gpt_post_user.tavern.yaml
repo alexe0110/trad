@@ -1,0 +1,21 @@
+# Тестирование метода POST /user/{user_id}
+test_name: "Test POST method for /user/{user_id}"
+stages:
+  - name: "Update user name"
+    request:
+      url: "http://localhost:8000/user/3"
+      method: "POST"
+      params:
+        new_name: "Mike"
+      headers:
+        content-type: "application/json"
+    response:
+      status_code: 200
+      headers:
+        content-type: "application/json"
+      json:
+        status: 200
+        new name:
+          id: 3
+          name: "Mike"
+          role: "trader"

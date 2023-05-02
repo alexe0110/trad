@@ -1,0 +1,16 @@
+# Тестирование метода GET /user/{user_id}
+test_name: "Test GET method for /user/{user_id}"
+stages:
+  - name: "Get user by ID"
+    request:
+      url: "http://localhost:8000/user/2"
+      method: "GET"
+    response:
+      status_code: 200
+      headers:
+        content-type: "application/json"
+      json:
+        - id: 2
+          name: "John"
+          role: "investor"
+          degree: null
