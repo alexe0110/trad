@@ -19,6 +19,7 @@ fastapi-users = {extras = ["sqlalchemy"], version = "^11.0.0"}
 tavern = "^2.0.7"
 werkzeug = "^2.3.3"
 schemathesis = "^3.19.1"
+allure-pytest = "^2.13.2"
 
 [tool.poetry.dev-dependencies]
 

@@ -21,6 +21,38 @@ typing-extensions = ">=4"
 tz = ["python-dateutil"]
 
 [[package]]
+name = "allure-pytest"
+version = "2.13.2"
+description = "Allure pytest integration"
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "allure-pytest-2.13.2.tar.gz", hash = "sha256:22243159e8ec81ce2b5254b4013802198821b1b42f118f69d4a289396607c7b3"},
+    {file = "allure_pytest-2.13.2-py3-none-any.whl", hash = "sha256:17de9dbee7f61c8e66a5b5e818b00e419dbcea44cb55c24319401ba813220690"},
+]
+
+[package.dependencies]
+allure-python-commons = "2.13.2"
+pytest = ">=4.5.0"
+
+[[package]]
+name = "allure-python-commons"
+version = "2.13.2"
+description = "Common module for integrate allure with python-based frameworks"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "allure-python-commons-2.13.2.tar.gz", hash = "sha256:8a03681330231b1deadd86b97ff68841c6591320114ae638570f1ed60d7a2033"},
+    {file = "allure_python_commons-2.13.2-py3-none-any.whl", hash = "sha256:2bb3646ec3fbf5b36d178a5e735002bc130ae9f9ba80f080af97d368ba375051"},
+]
+
+[package.dependencies]
+attrs = ">=16.0.0"
+pluggy = ">=0.4.0"
+
+[[package]]
 name = "anyio"
 version = "3.6.2"
 description = "High level compatibility layer for multiple asynchronous event loop implementations"
@@ -1941,4 +1973,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "327fa9b7519fdc39b37f424c416817aa24176069a7f6feacf9693f8f562121fb"
+content-hash = "09458b4f2c357d9da9c6526ed57bb4d30afc83a73e120e335af5e0cce0b70b1c"
