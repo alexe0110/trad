@@ -3,6 +3,8 @@ from typing import List
 from fastapi import FastAPI
 from http import HTTPStatus
 
+from starlette.responses import JSONResponse
+
 from models import Trade, User
 
 app = FastAPI(
@@ -26,7 +28,12 @@ fake_trades = [
 
 @app.get("/")
 def hello(name: str):
-    return f"Hello, {name}"
+    return JSONResponse(
+        status_code=HTTPStatus.OK,
+        content={
+            "message": "Hello, " + name
+        },
+    )
 
 
 @app.get("/user/{user_id}", response_model=list[User])
