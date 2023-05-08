@@ -1,18 +1,25 @@
 # Тестирование метода GET /trades
 test_name: "Test GET method for /trades"
+marks:
+  - endpoint_1
+  - usefixtures:
+      - clear_trades
 stages:
   - name: "Get trades with limit and offset"
     request:
       url: "http://localhost:8000/trades"
       method: "GET"
-      params:
-        limit: 1
-        offset: 1
     response:
       status_code: 200
       headers:
         content-type: "application/json"
       json:
+        - id: 1
+          user_id: 1
+          currency: "BTC"
+          side: "buy"
+          price: 123
+          amount: 2.12
         - id: 2
           user_id: 1
           currency: "BTC"
