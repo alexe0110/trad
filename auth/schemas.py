@@ -1,6 +1,4 @@
-import uuid
-from typing import Generic, List, Optional, TypeVar
-from pydantic import BaseModel, EmailStr
+from typing import Optional
 from fastapi_users import schemas
 
 
