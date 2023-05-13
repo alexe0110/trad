@@ -1,2 +1,1 @@
-from .models import Trade, Degree, User
-from .tables import roles, users, metadata
+from .tables import role, user, metadata
