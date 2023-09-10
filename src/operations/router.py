@@ -16,9 +16,7 @@ router = APIRouter(
 async def get_specific_operations(operation_type: str, session: AsyncSession = Depends(get_async_session)):
     query = select(operation).where(operation.c.type == operation_type)
     result = await session.execute(query)
-    rows = result.fetchall()
-    print(rows)
-    return "Пока не пойму почему не могу вернуть их в ответе"
+    return result.all()
 
 
 @router.post("/")
