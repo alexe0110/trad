@@ -15,7 +15,7 @@
     uvicorn main:app --reload
 
 
-#### Tavern тесты
+#### ~~Tavern тесты пока не работает~~ 
     tavern-ci tests/tavern --alluredir=/tmp/allure --clean-alluredir
 
 

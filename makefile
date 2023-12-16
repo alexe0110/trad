@@ -1,5 +1,6 @@
 VENV ?= .venv
 PYTHON_VERSION := 3.11
+CODE = src tests
 
 init:
 	python$(PYTHON_VERSION) -m venv $(VENV)
@@ -10,3 +11,7 @@ init:
 up-db:
 	docker-compose up -d redis db
 	alembic upgrade head
+
+pretty:
+	$(VENV)/bin/isort $(CODE)
+	$(VENV)/bin/black $(CODE)
