@@ -20,9 +20,15 @@ tavern = "^2.0.7"
 werkzeug = "^2.3.3"
 schemathesis = "^3.19.1"
 allure-pytest = "^2.13.2"
+black = "^23.12.0"
+isort = "^5.13.2"
 
 [tool.poetry.dev-dependencies]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+target-version = ['py311']
+line-length = 120
