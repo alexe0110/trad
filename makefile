@@ -15,3 +15,10 @@ up-db:
 pretty:
 	$(VENV)/bin/isort $(CODE)
 	$(VENV)/bin/black $(CODE)
+
+celery-start:
+	celery -A src.tasks.tasks.celery worker -D
+	celery -A src.tasks.tasks.celery flower
+
+celery-stop:
+	pkill -9 -f 'celery worker'
