@@ -6,3 +6,7 @@ init:
 	$(VENV)/bin/python -m pip install --upgrade pip
 	$(VENV)/bin/python -m pip install poetry
 	$(VENV)/bin/poetry install
+
+up-db:
+	docker-compose up -d redis db
+	alembic upgrade head
