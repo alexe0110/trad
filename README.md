@@ -1,7 +1,7 @@
 
 [📕 FastAPIUsers](https://fastapi-users.github.io/fastapi-users/10.0/)
 
-#### Подготовка окружения
+## Подготовка окружения
     make init
     docker-compose up -d redis db    
     alembic upgrade head
@@ -10,26 +10,31 @@
     make init
     make up-db
 
-#### Запуск 
+## Запуск 
+    export SMTP_USER=<адрес почты>
+    export SMTP_PASS=<токен почты>
+
     source .venv/bin/activate
     uvicorn main:app --reload
 
+## Линтеры
+    make pretty
 
-#### ~~Tavern тесты пока не работает~~ 
+## ~~Tavern тесты пока не работает~~ 
     tavern-ci tests/tavern --alluredir=/tmp/allure --clean-alluredir
 
 
-#### Рандомные данные
+## Рандомные данные
 https://www.coderstool.com/sql-test-data-generator
 
     INSERT INTO operation
     VALUES ('1', '23', 'QWER12', 'bond', '2022-04-10 09:18:10', 'Coupons');
 
 
-### Использование 
 
+## Использование
 
-##### Регистрация
+#### Регистрация
 Добавить роли 
 ```sql
 insert into role values (1, 'user', null), (2, 'admin', null);
@@ -46,3 +51,17 @@ POST /auth/register
   "role_id": 1
 }
 ```
+
+#### Celery
+Чтобы развернуть Celery
+
+	celery -A src.tasks.tasks.celery worker -D
+    celery -A src.tasks.tasks.celery flower
+
+или
+
+    make celery-start
+
+чтобы оставновить воркер
+
+    make celery-stop
