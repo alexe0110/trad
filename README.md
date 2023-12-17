@@ -17,14 +17,24 @@
     source .venv/bin/activate
     uvicorn main:app --reload
 
-## Линтеры
+
+## Тесты и Линтеры
+
+#### Линтеры
+
     make pretty
 
-## ~~Tavern тесты пока не работает~~ 
+#### ~~Tavern тесты~~ - пока не работает
     tavern-ci tests/tavern --alluredir=/tmp/allure --clean-alluredir
 
 
-## Рандомные данные
+
+
+## Использование
+
+#### Регистрация
+
+#### Рандомные данные
 https://www.coderstool.com/sql-test-data-generator
 
     INSERT INTO operation
@@ -32,9 +42,6 @@ https://www.coderstool.com/sql-test-data-generator
 
 
 
-## Использование
-
-#### Регистрация
 Добавить роли 
 ```sql
 insert into role values (1, 'user', null), (2, 'admin', null);

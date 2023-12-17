@@ -9,7 +9,7 @@ init:
 	$(VENV)/bin/poetry install
 
 up-db:
-	docker-compose up -d redis db
+	docker-compose up -d redis db test_db
 	alembic upgrade head
 
 pretty:
