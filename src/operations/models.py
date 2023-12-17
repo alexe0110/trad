@@ -1,6 +1,6 @@
 from sqlalchemy import TIMESTAMP, Column, Integer, MetaData, String, Table
 
-metadata = MetaData()
+from src.database import metadata
 
 operation = Table(
     "operation",

@@ -9,8 +9,9 @@ init:
 	$(VENV)/bin/poetry install
 
 up-db:
-	docker-compose up -d redis db
-	alembic upgrade head
+	docker-compose up -d redis db test_db
+	DB_ENV='test' alembic upgrade head
+	DB_ENV='prod' alembic upgrade head
 
 pretty:
 	$(VENV)/bin/isort $(CODE)

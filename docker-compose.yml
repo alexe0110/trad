@@ -9,6 +9,15 @@ services:
     ports:
       - "5432:5432"
 
+  test_db:
+    image: "postgres:14-alpine"
+    environment:
+      POSTGRES_DB: "trading"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    ports:
+      - "6000:5432"
+
   redis:
     container_name: secretary-redis
     image: "redis:7.2.2"

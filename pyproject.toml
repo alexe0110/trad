@@ -16,7 +16,6 @@ python-dotenv = "^1.0.0"
 asyncpg = "^0.27.0"
 fastapi-users = {extras = ["sqlalchemy"], version = "^11.0.0"}
 fastapi-cache2 = {extras = ["redis"], version = "^0.2.0"}
-tavern = "^2.0.7"
 werkzeug = "^2.3.3"
 schemathesis = "^3.19.1"
 allure-pytest = "^2.13.2"
@@ -24,6 +23,8 @@ black = "^23.12.0"
 isort = "^5.13.2"
 celery = "^5.3.6"
 flower = "^2.0.1"
+pytest = "^7.2.1"
+pytest-asyncio = "^0.20.3"
 
 [tool.poetry.dev-dependencies]
 
@@ -34,3 +35,9 @@ build-backend = "poetry.core.masonry.api"
 [tool.black]
 target-version = ['py311']
 line-length = 120
+
+[tool.pytest.ini_options]
+pythonpath = [
+  ".", "src",
+]
+asyncio_mode="auto"

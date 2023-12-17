@@ -7,15 +7,25 @@ from alembic import context
 import os
 import sys
 
-from src.config import DB_HOST, DB_PORT, DB_USER, DB_NAME, DB_PASS
-from src.auth.models import metadata as metadata_auth
-from src.operations.models import metadata as metadata_operations
+from src.config import DB_HOST, DB_PORT, DB_USER, DB_NAME, DB_PASS, DB_HOST_TEST, DB_PORT_TEST, DB_NAME_TEST, DB_USER_TEST, DB_PASS_TEST
+from src.database import metadata
 
 sys.path.append(os.path.join(sys.path[0], 'src'))
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
+
+DB_ENV = str(os.getenv('DB_ENV'))
+if DB_ENV == 'test':
+    DB_HOST = DB_HOST_TEST
+    DB_PORT = DB_PORT_TEST
+    DB_NAME = DB_NAME_TEST
+    DB_USER = DB_USER_TEST
+    DB_PASS = DB_PASS_TEST
+
+print(f'Migration upgrade {DB_ENV}')
+print(f'sqlalchemy.url = postgresql+asyncpg://%({DB_USER})s:%({DB_PASS})s@%({DB_HOST})s:%({DB_PORT})s/%({DB_NAME})s?async_fallback=True')
 
 section = config.config_ini_section
 config.set_section_option(section, "DB_HOST", DB_HOST)
@@ -32,7 +42,7 @@ fileConfig(config.config_file_name)
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-target_metadata = [metadata_operations, metadata_auth]
+target_metadata = metadata
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
