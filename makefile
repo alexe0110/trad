@@ -10,7 +10,8 @@ init:
 
 up-db:
 	docker-compose up -d redis db test_db
-	alembic upgrade head
+	DB_ENV='test' alembic upgrade head
+	DB_ENV='prod' alembic upgrade head
 
 pretty:
 	$(VENV)/bin/isort $(CODE)

@@ -1,21 +1,15 @@
-import pytest
+from fastapi.testclient import TestClient
 from sqlalchemy import insert, select
 
 from src.auth.models import role
 
 
-async def test_add_role(db_session):
+async def test_register(as_client: TestClient, db_session):
     smtp = insert(role).values(id=1, name="admin", permissions=None)
     await db_session.execute(smtp)
     await db_session.commit()
 
-    qwery = select(role)
-    result = await db_session.execute(qwery)
-    print(result.all())
-
-
-def test_register(client):
-    response = client.post(
+    response = await as_client.post(
         "/auth/register",
         json={
             "email": "test_user",
