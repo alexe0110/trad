@@ -27,6 +27,10 @@
 #### ~~Tavern тесты~~ - пока не работает
     tavern-ci tests/tavern --alluredir=/tmp/allure --clean-alluredir
 
+#### Pytest тесты
+для тестов используется отдельная БД, на 6000 порту
+
+    pytest -sv tests/
 
 
 
