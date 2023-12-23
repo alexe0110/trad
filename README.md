@@ -15,7 +15,7 @@
     export SMTP_PASS=<токен почты>
 
     source .venv/bin/activate
-    uvicorn main:app --reload
+    uvicorn src.main:app --reload
 
 
 ## Тесты и Линтеры
@@ -53,12 +53,12 @@ insert into role values (1, 'user', null), (2, 'admin', null);
 POST /auth/register
 ```json
 {
-  "email": "kek@gmail.com",
-  "password": "mypass",
+  "email": "user",
+  "password": "user",
   "is_active": true,
   "is_superuser": false,
   "is_verified": false,
-  "username": "kekUser",
+  "username": "user",
   "role_id": 1
 }
 ```
