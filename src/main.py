@@ -11,6 +11,7 @@ from src.auth.base_config import auth_backend, fastapi_users
 from src.auth.schemas import UserCreate, UserRead
 from src.operations.router import router as router_operation
 from src.tasks.router import router as router_tasks
+from src.pages.router import router as router_pages
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s:\t %(message)s")
 logger = logging.getLogger(__name__)
@@ -43,6 +44,7 @@ app.include_router(
 
 app.include_router(router_operation)
 app.include_router(router_tasks)
+app.include_router(router_pages)
 
 origins = [
     "http://localhost",
