@@ -13,6 +13,7 @@ from src.auth.schemas import UserCreate, UserRead
 from src.operations.router import router as router_operation
 from src.pages.router import router as router_pages
 from src.tasks.router import router as router_tasks
+from src.chat.router import router as chat_router
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s:\t %(message)s")
 logger = logging.getLogger(__name__)
@@ -48,6 +49,7 @@ app.include_router(
 app.include_router(router_operation)
 app.include_router(router_tasks)
 app.include_router(router_pages)
+app.include_router(chat_router)
 
 origins = [
     "http://localhost",
