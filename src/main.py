@@ -3,17 +3,16 @@ import time
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
 from redis import asyncio as aioredis
-from fastapi.staticfiles import StaticFiles
-
 
 from src.auth.base_config import auth_backend, fastapi_users
 from src.auth.schemas import UserCreate, UserRead
 from src.operations.router import router as router_operation
-from src.tasks.router import router as router_tasks
 from src.pages.router import router as router_pages
+from src.tasks.router import router as router_tasks
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s:\t %(message)s")
 logger = logging.getLogger(__name__)
