@@ -6,6 +6,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
 from redis import asyncio as aioredis
+from fastapi.staticfiles import StaticFiles
+
 
 from src.auth.base_config import auth_backend, fastapi_users
 from src.auth.schemas import UserCreate, UserRead
@@ -18,6 +20,8 @@ logger = logging.getLogger(__name__)
 
 
 app = FastAPI(title="Trading App")
+
+app.mount("/src/static", StaticFiles(directory="src/static"), name="static")
 
 
 @app.middleware("http")
