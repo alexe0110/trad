@@ -3,6 +3,7 @@ import time
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
 from redis import asyncio as aioredis
@@ -10,6 +11,7 @@ from redis import asyncio as aioredis
 from src.auth.base_config import auth_backend, fastapi_users
 from src.auth.schemas import UserCreate, UserRead
 from src.operations.router import router as router_operation
+from src.pages.router import router as router_pages
 from src.tasks.router import router as router_tasks
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s:\t %(message)s")
@@ -17,6 +19,8 @@ logger = logging.getLogger(__name__)
 
 
 app = FastAPI(title="Trading App")
+
+app.mount("/src/static", StaticFiles(directory="src/static"), name="static")
 
 
 @app.middleware("http")
@@ -43,6 +47,7 @@ app.include_router(
 
 app.include_router(router_operation)
 app.include_router(router_tasks)
+app.include_router(router_pages)
 
 origins = [
     "http://localhost",
