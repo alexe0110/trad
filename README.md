@@ -17,6 +17,8 @@
     source .venv/bin/activate
     uvicorn src.main:app --reload
 
+- [Админка](http://127.0.0.1:8000/docs)
+- [Чат на вебсокетах](http://127.0.0.1:8000/pages/chat)
 
 ## Тесты и Линтеры
 
@@ -30,9 +32,9 @@
 #### Pytest тесты
 для тестов используется отдельная БД, на 6000 порту
 
+    docker-compose up -d test_db    
+    DB_ENV='test' alembic upgrade head
     pytest -sv tests/
-
-
 
 ## Использование
 
