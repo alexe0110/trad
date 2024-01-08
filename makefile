@@ -23,3 +23,9 @@ celery-start:
 
 celery-stop:
 	pkill -9 -f 'celery worker'
+
+
+test:
+	docker-compose up -d test_db
+	DB_ENV='test' alembic upgrade head
+	pytest -sv tests/

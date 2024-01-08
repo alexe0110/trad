@@ -9,6 +9,8 @@ import sys
 
 from src.config import DB_HOST, DB_PORT, DB_USER, DB_NAME, DB_PASS, DB_HOST_TEST, DB_PORT_TEST, DB_NAME_TEST, DB_USER_TEST, DB_PASS_TEST
 from src.database import metadata
+from src.auth.models import *
+from src.chat.models import *
 
 sys.path.append(os.path.join(sys.path[0], 'src'))
 
